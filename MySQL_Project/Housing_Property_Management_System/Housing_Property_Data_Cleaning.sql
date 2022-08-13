@@ -38,6 +38,10 @@ join housing_property_data hpd_b
 
 select UniqueID, ParcelID, PropertyAddress, OwnerName from housing_property_data;
 
+-- Parsing the cityname from PropertyAddress string
+
+select UniqueID, ParcelID, SaleDate, substring_index(PropertyAddress, ',' , -1) as CityName from housing_property_data;
+
 
 
 
