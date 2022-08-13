@@ -38,9 +38,21 @@ join housing_property_data hpd_b
 
 select UniqueID, ParcelID, PropertyAddress, OwnerName from housing_property_data;
 
--- Parsing the cityname from PropertyAddress string
+													-- Parsing the cityname from PropertyAddress string
 
 select UniqueID, ParcelID, SaleDate, substring_index(PropertyAddress, ',' , -1) as CityName from housing_property_data;
+
+
+													-- Deleting unused columns
+
+Alter table housing_property_data
+drop column TaxDistrict;
+
+Alter table housing_property_data
+drop column OwnerAddress;
+
+Alter table housing_property_data
+drop column LegalReference;
 
 
 
